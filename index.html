@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Move-In Day Campaign</title>
+<style>
+  @font-face { font-family:'Oswald'; font-weight:200 700; font-display:swap;
+    src: url('https://taylormadecreative.github.io/ht-move-in-email/fonts/Oswald-Var.woff2') format('woff2'); }
+  @font-face { font-family:'Open Sans'; font-weight:400; font-display:swap;
+    src: url('https://taylormadecreative.github.io/ht-move-in-email/fonts/OpenSans-Regular.woff2') format('woff2'); }
+  @font-face { font-family:'Open Sans'; font-weight:700; font-display:swap;
+    src: url('https://taylormadecreative.github.io/ht-move-in-email/fonts/OpenSans-Bold.woff2') format('woff2'); }
+  @font-face { font-family:'Open Sans'; font-weight:800; font-display:swap;
+    src: url('https://taylormadecreative.github.io/ht-move-in-email/fonts/OpenSans-ExtraBold.woff2') format('woff2'); }
+  @font-face { font-family:'Crimson Text'; font-style:italic; font-weight:400; font-display:swap;
+    src: url('https://taylormadecreative.github.io/ht-move-in-email/fonts/CrimsonText-Italic.woff2') format('woff2'); }
+
+  :root { color-scheme: light only; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#F6F0E1; color:#3A2A25; font-family:'Open Sans','Helvetica Neue',Arial,sans-serif;
+         font-size:17px; line-height:1.6; overflow-x:clip; }
+  img, video, iframe { max-width:100%; display:block; }
+  .disp { font-family:'Oswald','Arial Narrow',Arial,sans-serif; font-weight:600; text-transform:uppercase;
+          letter-spacing:0.5px; line-height:0.98; }
+  .wrap { max-width:1060px; margin:0 auto; padding:0 28px; }
+
+  .hairline { height:6px; background:#C79A2E; }
+
+  header.site { padding:34px 0 0; }
+  header.site .row { display:flex; justify-content:space-between; align-items:center;
+                     border-bottom:2px solid #C79A2E; padding-bottom:22px; }
+  header.site img { height:44px; }
+  header.site .id { text-align:right; }
+  header.site .id .a { font-size:13px; font-weight:800; letter-spacing:2.4px; color:#5E0404; }
+  header.site .id .b { font-size:11px; font-weight:700; letter-spacing:2.6px; color:#8A6410; margin-top:4px; }
+
+  .hero { padding:84px 0 72px; }
+  .hero h1 { font-size:clamp(56px, 9vw, 118px); }
+  .hero h1 .m { color:#5E0404; display:block; }
+  .hero h1 .g { color:#A87B10; display:block; }
+  .hero .bar { width:130px; height:10px; background:#C79A2E; border-radius:2px; margin:26px 0; }
+  .hero p { max-width:60ch; font-size:19px; }
+  .hero p b { color:#5E0404; }
+
+  section.chapter { padding:78px 0; }
+  section.dark { background:#660000; color:#F7F1E2; }
+  section.gold { background:#F6CE46; color:#4A2408; }
+  .kick { font-size:13px; font-weight:800; letter-spacing:3px; color:#8A6410; margin-bottom:14px; }
+  .dark .kick { color:#F6CE46; }
+  .gold .kick { color:#5E0404; }
+  h2.disp { font-size:clamp(38px, 5.4vw, 64px); color:#5E0404; }
+  .dark h2.disp { color:#F7F1E2; }
+  h2.disp .alt { color:#A87B10; }
+  .dark h2.disp .alt { color:#F6CE46; }
+  .lede { max-width:62ch; margin-top:18px; font-size:18px; }
+  .dark .lede { color:#E8D9C0; }
+
+  .reveal { opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.23,1,.32,1), transform .8s cubic-bezier(.23,1,.32,1); }
+  .reveal.in { opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } }
+
+  /* email frame */
+  .emailframe { margin-top:44px; background:#EAE0CB; border:1px solid #D8C9A8; border-radius:14px;
+                box-shadow:0 30px 70px rgba(46,10,10,.25); overflow:hidden; }
+  .emailframe iframe { width:100%; height:860px; border:0; background:#EAE0CB; }
+  .chiplink { display:inline-block; margin-top:20px; background:#5E0404; color:#F6CE46; font-weight:800;
+              font-size:13px; letter-spacing:1.8px; text-transform:uppercase; text-decoration:none;
+              padding:14px 24px; border-radius:6px; }
+  .chiplink:hover { background:#4A0B0B; }
+  .gold .chiplink { color:#F6CE46; }
+
+  /* carousel strip */
+  .slides { margin-top:44px; display:grid; grid-template-columns:repeat(5, 1fr); gap:14px; }
+  .slides img { border-radius:10px; box-shadow:0 16px 36px rgba(20,4,4,.45); }
+  @media (max-width:840px) { .slides { grid-template-columns:repeat(2, 1fr); } .slides img:last-child { grid-column:span 2; } }
+
+  /* video */
+  .videorow { margin-top:44px; display:flex; gap:56px; align-items:center; flex-wrap:wrap; }
+  .phone { flex:none; width:min(340px, 86vw); border-radius:38px; padding:14px; background:#2B0808;
+           box-shadow:0 34px 80px rgba(20,4,4,.5); }
+  .phone video { border-radius:26px; width:100%; }
+  .videonotes { flex:1; min-width:260px; }
+  .videonotes ul { margin-top:16px; list-style:none; }
+  .videonotes li { padding:10px 0; border-bottom:1px solid #7E2A2A; color:#E8D9C0; font-weight:700; }
+  .videonotes li:last-child { border-bottom:0; }
+  .videonotes li span { color:#F6CE46; margin-right:10px; }
+
+  /* print */
+  .printrow { margin-top:44px; display:grid; grid-template-columns:1.5fr 1fr; gap:26px; align-items:start; }
+  .printrow img { border-radius:12px; box-shadow:0 24px 56px rgba(46,10,10,.35); }
+  @media (max-width:760px) { .printrow { grid-template-columns:1fr; } }
+
+  /* close */
+  .close { text-align:center; padding:96px 0; }
+  .close h2 { font-size:clamp(40px, 6vw, 72px); color:#F7F1E2; }
+  .close h2 em { font-style:normal; color:#F6CE46; }
+  .close p { max-width:56ch; margin:22px auto 0; color:#E8D9C0; font-size:18px; }
+  .close .sig { margin-top:40px; font-family:'Crimson Text',Georgia,serif; font-style:italic;
+                font-size:21px; color:#E8D9C0; }
+  footer { background:#300A0A; text-align:center; padding:30px 20px; font-size:12.5px; letter-spacing:1.6px;
+           color:#B99A84; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="hairline"></div>
+
+<header class="site"><div class="wrap">
+  <div class="row">
+    <img src="https://taylormadecreative.github.io/ht-move-in-email/images/ht-ram-logo.png" alt="Huston-Tillotson Rams">
+    <div class="id">
+      <div class="a">HUSTON-TILLOTSON UNIVERSITY</div>
+      <div class="b">MOVE-IN DAY CAMPAIGN</div>
+    </div>
+  </div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <h1 class="disp reveal"><span class="m">One Message.</span><span class="g">Every Channel.</span></h1>
+  <div class="bar reveal"></div>
+  <p class="reveal">Move-in day only works when every student hears the same thing everywhere they look. This is the same campaign, speaking in the same voice, in the <b>inbox</b>, on the <b>feed</b>, on <b>screen</b>, and on the <b>wall</b>.</p>
+</div></div>
+
+<section class="chapter" id="email"><div class="wrap">
+  <div class="kick reveal">CHANNEL 01 &mdash; THE INBOX</div>
+  <h2 class="disp reveal">The Email <span class="alt">Every Student Opens</span></h2>
+  <p class="lede reveal">A fully animated HTML email from the President's desk. The gold foil sweeps, the checklist ticks itself, the arrows move, and it still renders clean in Gmail, Apple Mail, and Outlook. This is the live email below, not a picture of it.</p>
+  <div class="emailframe reveal">
+    <iframe src="https://taylormadecreative.github.io/ht-move-in-email/" title="Move-in day email, live preview" loading="lazy"></iframe>
+  </div>
+  <a class="chiplink" href="https://taylormadecreative.github.io/ht-move-in-email/" target="_blank" rel="noopener">Open the Email Full Screen</a>
+</div></section>
+
+<section class="chapter dark" id="social"><div class="wrap">
+  <div class="kick reveal">CHANNEL 02 &mdash; THE FEED</div>
+  <h2 class="disp reveal">The Carousel <span class="alt">They Swipe and Share</span></h2>
+  <p class="lede reveal">Five slides for Instagram, built to be saved and sent to roommates. Same maroon, same gold, same checklist, so the feed and the inbox reinforce each other instead of competing.</p>
+  <div class="slides reveal">
+    <img src="images/slide-1.jpg" alt="Carousel slide 1: Your move-in day checklist">
+    <img src="images/slide-2.jpg" alt="Carousel slide 2: Get cleared before you roll out">
+    <img src="images/slide-3.jpg" alt="Carousel slide 3: Pack smart, dorm room MVPs">
+    <img src="images/slide-4.jpg" alt="Carousel slide 4: Move-in day game plan">
+    <img src="images/slide-5.jpg" alt="Carousel slide 5: You're almost home, Rams">
+  </div>
+</div></section>
+
+<section class="chapter" id="video" style="background:#4A0B0B; color:#F7F1E2;"><div class="wrap">
+  <div class="kick reveal" style="color:#F6CE46;">CHANNEL 03 &mdash; THE SCREEN</div>
+  <h2 class="disp reveal" style="color:#F7F1E2;">The Video <span class="alt" style="color:#F6CE46;">In Their Feed by Friday</span></h2>
+  <p class="lede reveal" style="color:#E8D9C0;">A student host walks the checklist in under a minute: vertical, captioned, cut for Reels and TikTok, closing on the same Ram Connect call to action as everything else.</p>
+  <div class="videorow">
+    <div class="phone reveal">
+      <video src="video/ada-move-in.mp4" poster="video/ada-poster.jpg" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="videonotes reveal">
+      <ul>
+        <li><span>&#10003;</span>Vertical 9:16, built for Reels + TikTok</li>
+        <li><span>&#10003;</span>Word-for-word captions, sound optional</li>
+        <li><span>&#10003;</span>B-roll, punch-ins, and sound design</li>
+        <li><span>&#10003;</span>Ends on the Ram Connect end card</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="chapter gold" id="print"><div class="wrap">
+  <div class="kick reveal">CHANNEL 04 &mdash; THE WALL</div>
+  <h2 class="disp reveal" style="color:#5E0404;">The Poster <span style="color:#7A4A08;">They Walk Past Daily</span></h2>
+  <p class="lede reveal" style="color:#4A2408;">Residence halls, the mailroom, the student center. The same checklist, print-ready, with a QR code that takes a student from the hallway to Ram Connect in one scan.</p>
+  <div class="printrow">
+    <img class="reveal" src="images/print-mockup.jpg" alt="Move-in day checklist poster mocked up on a maroon wall">
+    <img class="reveal" src="images/poster-flat.jpg" alt="Flat print-ready move-in day poster">
+  </div>
+</div></section>
+
+<section class="close" style="background:#660000;"><div class="wrap">
+  <h2 class="disp reveal">One Campaign. <em>Every Channel.</em></h2>
+  <p class="reveal">Email, social, video, and print, all speaking in one voice and pointing at one action. Move-in day is chapter one; the same engine runs Welcome Week, homecoming, and giving season.</p>
+  <div class="sig reveal">Prepared for the Office of the President, Huston-Tillotson University</div>
+</div></section>
+
+<footer>TAYLORMADE CREATIVE &bull; PREPARED FOR HUSTON-TILLOTSON UNIVERSITY</footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { rootMargin: '-60px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
